@@ -88,6 +88,38 @@ const benchmarkData = [
   { name: "ICEL", keywords: 8283, traffic: 160766, cost: 122217, fill: "#ec4899" },
 ];
 
+/* ── AEO / AI Visibility Metrics (Manual sampling: 12 queries × 3 LLMs) ── */
+const aeoMetrics = [
+  {
+    label: "AI Share of Voice",
+    value: "0%",
+    detail: "UniverMilenium no fue mencionado en ninguna de las 12 queries genéricas probadas en ChatGPT, Gemini y Perplexity.",
+    benchmark: "UVM: 8/12 · UNITEC: 6/12",
+    tone: "bad" as const,
+  },
+  {
+    label: "AI Visibility Score",
+    value: "0 / 36",
+    detail: "Brand mentions vs total respuestas. 12 queries × 3 LLMs = 36 oportunidades. UM: 0 menciones.",
+    benchmark: "UVM: 14/36 (39%) · UNITEC: 9/36 (25%)",
+    tone: "bad" as const,
+  },
+  {
+    label: "Citations en Perplexity",
+    value: "0",
+    detail: "URLs de univermilenium.edu.mx citadas como fuente en respuestas de Perplexity: cero.",
+    benchmark: "UVM: 5 · UNITEC: 3",
+    tone: "bad" as const,
+  },
+  {
+    label: "Branded AEO",
+    value: "100%",
+    detail: "En queries branded ('UniverMilenium'), sí aparece correctamente en los 3 LLMs con información básica.",
+    benchmark: "Todas las marcas: 100%",
+    tone: "good" as const,
+  },
+];
+
 const concentrationData = [
   { name: "Home", value: 81.49, fill: "#5b5cf0" },
   { name: "UM Clases Online", value: 3.29, fill: "#10b981" },
@@ -690,6 +722,7 @@ const nav: NavItem[] = [
   { type: "divider", label: "Cómo están hoy" },
   { type: "link", id: "overview", label: "Resumen", icon: Compass },
   { type: "link", id: "benchmark", label: "Benchmark", icon: BarChart3 },
+  { type: "link", id: "aeo", label: "AEO Intelligence", icon: BrainCircuit },
   { type: "divider", label: "Por qué no aparecen" },
   { type: "link", id: "clusters", label: "Clusters", icon: Target },
   { type: "link", id: "patterns", label: "Patrones", icon: Radar },
@@ -1262,6 +1295,42 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </section>
+
+          <section id="aeo" className="rounded-[32px] border border-white/10 bg-white/6 p-6 backdrop-blur-2xl md:p-8">
+            <SectionHeader
+              eyebrow="AEO Intelligence"
+              title="Visibilidad en respuestas de IA: el nuevo campo de batalla."
+              copy="¿Qué tan seguido aparece UniverMilenium cuando un prospecto pregunta a ChatGPT, Gemini o Perplexity sobre universidades? Métricas basadas en muestreo manual de 12 queries genéricos cruzados contra 3 LLMs."
+            />
+            <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {aeoMetrics.map((m) => (
+                <div
+                  key={m.label}
+                  className={`rounded-[22px] border p-5 ${
+                    m.tone === "bad"
+                      ? "border-red-400/15 bg-red-500/5"
+                      : "border-emerald-400/15 bg-emerald-500/5"
+                  }`}
+                >
+                  <div className="text-xs uppercase tracking-[0.2em] text-slate-400">{m.label}</div>
+                  <div className={`mt-3 font-display text-3xl ${
+                    m.tone === "bad" ? "text-red-300" : "text-emerald-300"
+                  }`}>
+                    {m.value}
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">{m.detail}</p>
+                  <div className="mt-3 rounded-lg bg-white/5 px-3 py-1.5 text-xs text-slate-400">
+                    <span className="font-medium text-slate-300">Benchmark:</span> {m.benchmark}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 rounded-[18px] border border-amber-400/15 bg-amber-500/8 p-4">
+              <p className="text-sm leading-7 text-slate-300">
+                <span className="font-medium text-amber-200">⚠️ Metodología:</span> Estas métricas son un <em>baseline muestral</em>, no censal. Se probaron 12 queries representativos (marca, programa, GEO) en ChatGPT-4, Gemini y Perplexity. La medición se repetirá trimestral para medir evolución. No existe aún un estándar de industria para AI share of voice; esta es una proxy operativa.
+              </p>
             </div>
           </section>
 
