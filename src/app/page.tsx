@@ -1,5 +1,7 @@
 "use client";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -1782,7 +1784,7 @@ export default function Home() {
                       <div className="flex items-center gap-3 border-b border-white/5 px-4 py-3">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={ad.profileImage}
+                          src={`${basePath}${ad.profileImage}`}
                           alt={ad.brand}
                           className="h-10 w-10 rounded-full object-cover ring-1 ring-white/10"
                         />
@@ -1808,7 +1810,7 @@ export default function Home() {
                       {/* Creative image */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={ad.creativeImage}
+                        src={`${basePath}${ad.creativeImage}`}
                         alt={`${ad.brand} ad creative`}
                         className="w-full object-cover"
                         style={{ maxHeight: 260 }}
