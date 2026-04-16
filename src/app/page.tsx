@@ -366,14 +366,11 @@ const reportStatus = [
 
 const strengths = [
   "Ya existe una base SEO activa en WordPress con sitemap, canonicals y schema institucional.",
-  "Sí hay URLs de programa para capturar demanda; el problema es que todavía no son suficientemente competitivas.",
   "Radiología e Imagen ya muestra una señal de quick win replicable a otros programas.",
-  "La cobertura por campus permite construir una capa GEO más fuerte sin partir desde cero.",
 ];
 
 const risks = [
   "Seguir dependiendo de marca, home y plataformas para sostener la mayor parte de la visibilidad.",
-  "Llegar a la migración sin priorización por cluster, campus y modalidad.",
   "Invertir más en captación sin corregir la arquitectura de descubrimiento y consideración.",
   "Mantener páginas y activos indexables que dispersan señales y no aportan negocio.",
 ];
@@ -936,65 +933,9 @@ export default function Home() {
   const sectionIds = navLinks.map((n) => n.id);
   const active = useActiveSection(sectionIds);
 
-  return (
-    <div className="min-h-screen bg-[#07111f] text-slate-100">
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(91,92,240,0.18),_transparent_26%),radial-gradient(circle_at_78%_12%,_rgba(6,182,212,0.18),_transparent_20%),linear-gradient(180deg,_#08111f,_#091524_54%,_#07111f)]" />
-      <MobileNav active={active} />
-      <ScrollToTop />
-      <div className="relative mx-auto flex w-full max-w-[1680px] gap-6 px-4 pt-[72px] pb-4 md:px-6 lg:px-8 xl:pt-4">
-        <aside className="sticky top-4 hidden h-[calc(100vh-2rem)] w-72 shrink-0 overflow-hidden rounded-[28px] border border-white/8 bg-white/6 backdrop-blur-2xl xl:block">
-          <div className="flex h-full flex-col">
-            <div className="border-b border-white/8 px-6 py-6">
-              <div className="flex items-center gap-3">
-                <div className="grid size-11 place-items-center rounded-2xl bg-gradient-to-br from-violet-500 to-cyan-400 text-white shadow-lg shadow-violet-950/40">
-                  <GraduationCap className="size-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-slate-300">UniverMilenium</p>
-                  <h1 className="font-display text-xl text-white">Inteligencia de Crecimiento</h1>
-                </div>
-              </div>
-            </div>
+      <div className="relative mx-auto flex w-full max-w-[1024px] flex-col gap-6 px-4 pt-12 pb-4 md:px-8 xl:pt-4">
 
-            <nav className="flex-1 space-y-1 px-4 py-5">
-              {nav.map((item, i) =>
-                item.type === "divider" ? (
-                  <div key={`d-${i}`} className="px-3 pb-2 pt-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-500 first:pt-0">
-                    {item.label}
-                  </div>
-                ) : (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className={`group flex items-center justify-between rounded-2xl border px-3 py-3 text-sm transition ${
-                      active === item.id
-                        ? "border-violet-400/20 bg-violet-500/12 text-white"
-                        : "border-transparent text-slate-300 hover:border-white/10 hover:bg-white/6 hover:text-white"
-                    }`}
-                  >
-                    <span className="flex items-center gap-3">
-                      <item.icon className={`size-4 transition ${active === item.id ? "text-violet-300" : "text-slate-400 group-hover:text-violet-300"}`} />
-                      {item.label}
-                    </span>
-                    <ChevronRight className={`size-4 transition ${active === item.id ? "text-violet-300" : "text-slate-500 group-hover:text-slate-200"}`} />
-                  </a>
-                )
-              )}
-            </nav>
-
-              <div className="m-4 rounded-[24px] border border-violet-400/20 bg-gradient-to-br from-violet-500/14 via-violet-500/8 to-cyan-500/10 p-4">
-              <p className="text-[11px] uppercase tracking-[0.24em] text-violet-200">
-                Señal estratégica
-              </p>
-              <p className="mt-3 font-display text-2xl text-white">81.49%</p>
-              <p className="mt-1 text-sm leading-6 text-slate-300">
-                de la visibilidad orgánica top muestreada sigue concentrada en la home.
-              </p>
-            </div>
-          </div>
-        </aside>
-
-        <main className="min-w-0 flex-1 space-y-6">
+        <main className="w-full space-y-6">
           <section
             id="overview"
             className="overflow-hidden rounded-[32px] border border-white/10 bg-white/6 p-6 backdrop-blur-2xl md:p-8"
@@ -1007,7 +948,7 @@ export default function Home() {
                     Reporte ejecutivo SEO / AEO / GEO
                   </div>
                   <h1 className="max-w-4xl font-display text-4xl leading-[1.05] text-white md:text-6xl">
-                    Construye un sistema de crecimiento, no solo una auditoría SEO.
+                    Sistema de Crecimiento: Reporte Ejecutivo SEO/AEO.
                   </h1>
                   <p className="max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
                     UniverMilenium no tiene un problema de visibilidad aislado. Tiene un problema
@@ -1025,8 +966,8 @@ export default function Home() {
                     </div>
                     <p className="mt-3 font-display text-2xl text-white">CPA en aumento</p>
                     <p className="mt-2 text-sm leading-6 text-slate-300">
-                      Rectoría está preocupada por la visibilidad en IA y Marketing ya está
-                      sintiendo la presión de eficiencia ciclo tras ciclo.
+                      El CPL va en aumento y existe demasiada dependencia de la pauta en Google y Meta.
+                      El presupuesto de marketing no basta para los resultados exigidos.
                     </p>
                   </div>
                   <div className="rounded-[24px] border border-white/10 bg-[#0d1830]/80 p-4">
@@ -1087,21 +1028,6 @@ export default function Home() {
                       <div className="mt-3 text-xs text-slate-500">Secciones: {q.sections}</div>
                     </div>
                   ))}
-                </div>
-              </div>
-
-              <div className="grid gap-4 xl:grid-cols-3">
-                {reportStatus.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-[24px] border border-white/10 bg-[#0b162a]/85 p-5"
-                  >
-                    <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                      Lectura ejecutiva
-                    </div>
-                    <h3 className="mt-3 font-display text-2xl text-white">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
-                  </div>
                 ))}
               </div>
             </div>
@@ -1254,9 +1180,9 @@ export default function Home() {
               </div>
 
               <div className="rounded-[32px] border border-white/10 bg-white/6 p-6 backdrop-blur-2xl md:p-8">
-                <div className="text-xs uppercase tracking-[0.22em] text-slate-400">Mezcla de señales</div>
+                <div className="text-xs uppercase tracking-[0.22em] text-slate-400">Resultado del Análisis SEO</div>
                 <h3 className="mt-3 font-display text-2xl text-white">
-                  La visibilidad sigue siendo principalmente marca y navegación.
+                  La visibilidad actual de UniverMilenium depende de la marca y la navegación.
                 </h3>
                 <div className="mt-6 h-[210px]">
                   <ResponsiveContainer width="100%" height="100%">
@@ -1415,7 +1341,7 @@ export default function Home() {
                       <td className="px-4 py-3 text-white font-medium">&ldquo;{row.query}&rdquo;</td>
                       <td className="px-4 py-3 text-center">
                         {row.univerAppears ? (
-                          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-2.5 py-1 text-xs text-emerald-300">Sí</span>
+            className="flex flex-col gap-6"
                         ) : (
                           <span className="inline-flex items-center gap-1.5 rounded-full border border-red-400/20 bg-red-500/10 px-2.5 py-1 text-xs text-red-300">No</span>
                         )}
@@ -1447,24 +1373,6 @@ export default function Home() {
                     key={pattern.name}
                     className="rounded-[24px] border border-white/10 bg-[#0c172b] p-4"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className={`h-14 w-2 shrink-0 rounded-full bg-gradient-to-b ${pattern.color}`} />
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between gap-3">
-                          <h3 className="font-display text-xl text-white">{pattern.name}</h3>
-                          <span className="shrink-0 rounded-full border border-white/10 bg-white/6 px-2.5 py-0.5 text-xs text-slate-300">
-                            Home: {pattern.homeShare}
-                          </span>
-                        </div>
-                        <p className="mt-1 text-sm text-slate-300">{pattern.description}</p>
-                        <p className="mt-1.5 truncate text-xs text-slate-500">Top URLs: {pattern.topUrl}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             <div className="rounded-[32px] border border-white/10 bg-white/6 p-6 backdrop-blur-2xl md:p-8">
               <div className="grid gap-4 md:grid-cols-2">
                 {evidenceCards.map(({ icon: Icon, title, text }) => (
@@ -1494,74 +1402,6 @@ export default function Home() {
               title="La capa de inteligencia digital debe cerrar la historia fuera del sitio: dónde sí aparece la marca y por qué todavía no domina IA."
               copy="Esta sección conecta SEO técnico con superficies externas: buscadores, señales locales, social, anuncios y answer engines. No sirve para demostrar que hay actividad digital; sirve para explicar por qué hoy la marca aparece más en navegación que en descubrimiento asistido por IA."
             />
-
-            <div className="mt-8 grid gap-4 xl:grid-cols-4">
-              {ecosystemScorecards.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ delay: index * 0.04, duration: 0.4 }}
-                  className={`rounded-[26px] border bg-gradient-to-br p-5 ${cardTone(item.tone)}`}
-                >
-                  <div className="text-xs uppercase tracking-[0.2em] text-slate-400">{item.label}</div>
-                  <div className="mt-4 font-display text-3xl text-white">{item.score}</div>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{item.detail}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-10 grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-              <div className="rounded-[28px] border border-white/10 bg-[#0b162a]/88 p-5">
-                <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                  Así están hoy
-                </div>
-                <h3 className="mt-3 font-display text-2xl text-white">
-                  La brecha no es ausencia digital. Es densidad de presencia útil.
-                </h3>
-                <div className="mt-6 h-[320px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={ecosystemPresenceData} margin={{ top: 16, right: 8, left: 0, bottom: 0 }}>
-                      <CartesianGrid stroke="rgba(255,255,255,0.08)" vertical={false} />
-                      <XAxis
-                        dataKey="name"
-                        tick={{ fill: "#cbd5e1", fontSize: 12 }}
-                        axisLine={false}
-                        tickLine={false}
-                      />
-                      <YAxis
-                        tick={{ fill: "#94a3b8", fontSize: 12 }}
-                        axisLine={false}
-                        tickLine={false}
-                        domain={[0, 100]}
-                      />
-                      <Tooltip
-                        content={<ChartTooltip valueFormatter={(value) => `${value}/100 de presencia estimada`} />}
-                        offset={18}
-                        allowEscapeViewBox={{ x: true, y: true }}
-                        cursor={{ fill: "rgba(255,255,255,0.03)" }}
-                      />
-                      <Bar dataKey="univer" name="UniverMilenium" radius={[10, 10, 0, 0]}>
-                        {ecosystemPresenceData.map((entry) => (
-                          <Cell key={`${entry.name}-univer`} fill={entry.fill} />
-                        ))}
-                      </Bar>
-                      <Bar dataKey="benchmark" name="Benchmark núcleo" radius={[10, 10, 0, 0]} fill="#334155" />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-4 text-sm text-slate-300">
-                  <div className="flex items-center gap-2">
-                    <span className="size-2.5 rounded-full bg-[#5b5cf0]" />
-                    UniverMilenium
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="size-2.5 rounded-full bg-slate-600" />
-                    Benchmark núcleo
-                  </div>
-                </div>
-              </div>
 
               <div className="space-y-4">
                 <div className="rounded-[28px] border border-white/10 bg-[#0b162a]/88 p-5">
@@ -1701,225 +1541,6 @@ export default function Home() {
                     <tbody>
                       {ecosystemPriorities.map((row) => (
                         <tr key={row.action} className="border-t border-white/8 bg-[#091326]/70 align-top">
-                          <td className="px-4 py-3 text-white">{row.action}</td>
-                          <td className="px-4 py-3 text-slate-300">{row.problem}</td>
-                          <td className="px-4 py-3 text-slate-300">{row.impact}</td>
-                          <td className="px-4 py-3">
-                            <span className="rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.18em] text-cyan-200">
-                              {row.type}
-                            </span>
-                          </td>
-                          <td className="px-4 py-3 text-slate-300">{row.timing}</td>
-                          <td className="px-4 py-3 text-slate-300">{row.dependency}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-10 rounded-[28px] border border-white/10 bg-[#081322]/88 p-5 md:p-6">
-              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                <div className="max-w-3xl">
-                  <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                    Presión competitiva en paid
-                  </div>
-                  <h3 className="mt-3 font-display text-2xl text-white">
-                    La categoría está demasiado concentrada en conversión y decisión
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">
-                    La lectura preliminar de anuncios y narrativa competitiva apunta a un mercado que compite sobre todo por captura inmediata. Eso explica parte del deterioro del CPA y abre una oportunidad clara para operar con una lógica más balanceada entre demanda activa y construcción de demanda futura.
-                  </p>
-                </div>
-                <div className="rounded-[22px] border border-violet-400/20 bg-violet-500/10 px-4 py-3 text-sm text-violet-100">
-                  Tesis guía: `95-5`
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-4 xl:grid-cols-3">
-                {paidPressureStats.map((item) => (
-                  <div
-                    key={item.label}
-                    className={`rounded-[24px] border bg-gradient-to-br p-5 ${cardTone(item.tone)}`}
-                  >
-                    <div className="text-xs uppercase tracking-[0.2em] text-slate-400">{item.label}</div>
-                    <div className="mt-4 font-display text-4xl text-white">{item.value}</div>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">{item.detail}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-                <div className="rounded-[26px] border border-white/10 bg-[#0b162a]/88 p-5">
-                  <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                    Mezcla de mensajes
-                  </div>
-                  <h4 className="mt-3 font-display text-2xl text-white">
-                    Cómo está compitiendo hoy la categoría
-                  </h4>
-                  <div className="mt-6 h-[300px]">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={paidMixData} margin={{ top: 10, right: 8, left: 0, bottom: 0 }}>
-                        <CartesianGrid stroke="rgba(255,255,255,0.08)" vertical={false} />
-                        <XAxis
-                          dataKey="name"
-                          tick={{ fill: "#cbd5e1", fontSize: 12 }}
-                          axisLine={false}
-                          tickLine={false}
-                        />
-                        <YAxis
-                          tick={{ fill: "#94a3b8", fontSize: 12 }}
-                          axisLine={false}
-                          tickLine={false}
-                          domain={[0, 100]}
-                        />
-                        <Tooltip
-                          content={<ChartTooltip valueFormatter={(value) => `${value}% del mix estimado`} />}
-                          offset={18}
-                          allowEscapeViewBox={{ x: true, y: true }}
-                          cursor={{ fill: "rgba(255,255,255,0.03)" }}
-                        />
-                        <Bar dataKey="category" name="Categoría hoy" radius={[10, 10, 0, 0]} fill="#f59e0b" />
-                        <Bar dataKey="opportunity" name="Mezcla recomendada" radius={[10, 10, 0, 0]} fill="#5b5cf0" />
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-4 text-sm text-slate-300">
-                    <div className="flex items-center gap-2">
-                      <span className="size-2.5 rounded-full bg-[#f59e0b]" />
-                      Categoría hoy
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="size-2.5 rounded-full bg-[#5b5cf0]" />
-                      Mezcla recomendada
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-[26px] border border-white/10 bg-[#0b162a]/88 p-5">
-                  <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                    Evidencia de narrativa
-                  </div>
-                  <h4 className="mt-3 font-display text-2xl text-white">
-                    Qué está diciendo hoy el mercado
-                  </h4>
-                  <div className="mt-5 overflow-hidden rounded-[22px] border border-white/10">
-                    <table className="w-full text-left text-sm">
-                      <thead className="bg-white/6 text-slate-300">
-                        <tr>
-                          <th className="px-4 py-3 font-medium">Canal</th>
-                          <th className="px-4 py-3 font-medium">Mensaje dominante</th>
-                          <th className="px-4 py-3 font-medium">Etapa</th>
-                          <th className="px-4 py-3 font-medium">Implicación</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {paidEvidenceRows.map((row) => (
-                          <tr key={row.channel} className="border-t border-white/8 bg-[#091326]/70 align-top">
-                            <td className="px-4 py-3 text-white">{row.channel}</td>
-                            <td className="px-4 py-3 text-slate-300">{row.message}</td>
-                            <td className="px-4 py-3">
-                              <span className="rounded-full border border-amber-400/20 bg-amber-500/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.18em] text-amber-200">
-                                {row.stage}
-                              </span>
-                            </td>
-                            <td className="px-4 py-3 text-slate-300">{row.implication}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 rounded-[26px] border border-white/10 bg-[#0b162a]/88 p-5 md:p-6">
-                <div className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                  Ejemplos reales de anuncios
-                  </div>
-                <h4 className="mt-3 font-display text-2xl text-white">
-                  UniverMilenium vs. competencia: anuncios activos en Meta Ads Library
-                </h4>
-                <p className="mt-3 text-sm leading-7 text-slate-300">
-                  Datos en vivo vía Apify. Cada tarjeta replica el anuncio tal como aparece en la Biblioteca de Anuncios de Meta. La etiqueta de etapa es nuestro análisis de en qué punto del funnel opera cada mensaje.
-                </p>
-                <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                  {adExamples.map((ad, i) => (
-                    <div
-                      key={i}
-                      className="flex flex-col overflow-hidden rounded-[18px] border border-white/10 bg-white/[0.03]"
-                    >
-                      {/* Header: profile + brand */}
-                      <div className="flex items-center gap-3 border-b border-white/5 px-4 py-3">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={`${basePath}${ad.profileImage}`}
-                          alt={ad.brand}
-                          className="h-10 w-10 rounded-full object-cover ring-1 ring-white/10"
-                        />
-                        <div className="min-w-0 flex-1">
-                          <div className="truncate text-sm font-semibold text-white">{ad.brand}</div>
-                          <div className="text-[11px] text-slate-500">Publicidad · Meta Ads</div>
-                        </div>
-                        <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[9px] uppercase tracking-[0.18em] ${
-                          ad.stage === "Decisión" ? "border-amber-400/20 bg-amber-500/10 text-amber-200" :
-                          "border-cyan-400/20 bg-cyan-500/10 text-cyan-200"
-                        }`}>
-                          {ad.stage}
-                        </span>
-                      </div>
-
-                      {/* Ad body text */}
-                      <div className="px-4 py-3">
-                        <p className="text-[13px] leading-6 text-slate-300" style={{ whiteSpace: "pre-line" }}>
-                          {ad.body}
-                        </p>
-                      </div>
-
-                      {/* Creative image */}
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={`${basePath}${ad.creativeImage}`}
-                        alt={`${ad.brand} ad creative`}
-                        className="w-full object-cover"
-                        style={{ maxHeight: 260 }}
-                      />
-
-                      {/* CTA footer */}
-                      <div className="flex items-center justify-between border-t border-white/5 px-4 py-3">
-                        <div className="min-w-0">
-                          <div className="truncate text-xs text-slate-500">{ad.caption}</div>
-                          <div className="truncate text-sm font-medium text-white">{ad.title}</div>
-                        </div>
-                        <span className="shrink-0 rounded-lg border border-white/15 bg-white/8 px-3 py-1.5 text-xs font-medium text-white">
-                          {ad.cta}
-                        </span>
-                      </div>
-
-                      {/* Our analysis */}
-                      <div className="border-t border-dashed border-violet-400/15 bg-violet-500/5 px-4 py-2.5">
-                        <p className="text-xs leading-5 text-violet-200/80">
-                          <span className="font-medium text-violet-200">Análisis:</span> {ad.analysis}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-5 rounded-[18px] border border-violet-400/15 bg-violet-500/8 p-4">
-                  <p className="text-sm leading-7 text-slate-300">
-                    <span className="font-medium text-violet-200">Fuente:</span> Meta Ads Library vía Apify (<code className="text-violet-300/70">curious_coder/facebook-ads-library-scraper</code>). 89 anuncios activos capturados. Se muestran 6 representativos por marca y etapa de funnel.
-                    </p>
-                  </div>
-              </div>
-
-              <div className="mt-8 grid gap-4 xl:grid-cols-4">
-                {paidConclusions.map((item) => (
-                  <div key={item} className="rounded-[22px] border border-white/10 bg-white/4 p-4 text-sm leading-7 text-slate-300">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
           </section>
 
           <section className="rounded-[32px] border border-white/10 bg-white/6 p-6 backdrop-blur-2xl md:p-8">
